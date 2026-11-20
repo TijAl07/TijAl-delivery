@@ -565,9 +565,19 @@ body {
 }
 @media (max-width: 720px) {
   .top {
-    height: 60px;
-    padding: 0 12px;
-    gap: 8px;
+    height: auto;
+    min-height: 60px;
+    flex-wrap: wrap;
+    padding: 8px 12px 0;
+    gap: 4px 8px;
+  }
+  .topbrand {
+    flex: 1 1 auto;
+    min-width: 0;
+  }
+  .topright {
+    flex: 0 0 auto;
+    margin-left: auto;
   }
   .topmark {
     height: 35px;
@@ -580,14 +590,22 @@ body {
     font-size: 10px;
   }
   .headnav {
-    gap: 0;
-  }
-  .headnav {
-    gap: 0;
+    position: static;
+    order: 3;
+    transform: none;
+    flex: 0 0 100%;
+    width: 100%;
+    justify-content: space-around;
+    gap: 2px;
+    border-top: 1px solid #ffffff30;
+    margin-top: 4px;
+    padding: 2px 0 6px;
   }
   .headnav a {
-    font-size: 11px;
-    padding: 8px 6px;
+    flex: 1 1 0;
+    text-align: center;
+    font-size: 12px;
+    padding: 8px 4px 10px;
   }
   .notify,
   .menuIcon {
