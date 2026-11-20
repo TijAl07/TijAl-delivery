@@ -1,0 +1,654 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>TijAI Admin — Operations Dashboard</title>
+    <link rel="stylesheet" href="./assets/css/admin.css" />
+  </head>
+  <body>
+    <div class="layout">
+      <aside class="sidebar">
+        <div class="brand">
+          <div class="logo">T</div>
+          <div><strong>TijAI Admin</strong><small>Delivery operations</small></div>
+        </div>
+        <div class="label">Workspace</div>
+        <nav class="nav" id="adminNav">
+          <a class="active" href="#overview" data-view="overview"
+            ><span>▦</span><span class="navtext">Overview</span></a
+          ><a href="#orders" data-view="orders"><span>▤</span><span class="navtext">Orders</span></a
+          ><a href="#riders" data-view="riders"><span>♙</span><span class="navtext">Riders</span></a
+          ><a href="#customers" data-view="customers"
+            ><span>♧</span><span class="navtext">Customers</span></a
+          ><a href="#services" data-view="services"
+            ><span>▣</span><span class="navtext">Services</span></a
+          ><a href="#items" data-view="items"><span>□</span><span class="navtext">Items</span></a
+          ><a href="#messages" data-view="messages"
+            ><span>✉</span><span class="navtext">Messages</span></a
+          ><a href="#settings" data-view="settings"
+            ><span>⚙</span><span class="navtext">Settings</span></a
+          >
+        </nav>
+        <div class="sidefoot">
+          <div class="adminuser">
+            <div class="avatar">A</div>
+            <div><strong>Admin account</strong><small>Operations manager</small></div>
+          </div>
+        </div>
+      </aside>
+      <div class="main">
+        <header class="topbar">
+          <div class="crumb" id="pageTitle">Overview</div>
+          <div class="topactions">
+            <a class="visitCustomer" href="index.html">Customer site ↗</a
+            ><input
+              class="searchbox"
+              id="adminSearch"
+              placeholder="Search orders..."
+              aria-label="Search"
+            /><button id="adminTheme" aria-label="Toggle theme" title="Toggle theme">☾</button
+            ><button aria-label="Notifications" title="Notifications">♧</button>
+          </div>
+        </header>
+        <main class="mainwrap">
+          <section class="pageview" data-page="overview">
+            <div class="pageintro">
+              <div>
+                <h1>Good morning, Admin</h1>
+                <p>Here is what is happening with deliveries today.</p>
+              </div>
+              <span class="badge"><span class="dot"></span> Sample dashboard data</span>
+            </div>
+            <div class="stats">
+              <article class="stat">
+                <div class="stathead">Orders today <span class="staticon">▤</span></div>
+                <strong>128</strong>
+                <div class="trend">↑ 12% <span class="muted">vs. yesterday</span></div>
+              </article>
+              <article class="stat">
+                <div class="stathead">In progress <span class="staticon">⌖</span></div>
+                <strong>34</strong>
+                <div class="trend">21 riders active</div>
+              </article>
+              <article class="stat">
+                <div class="stathead">Revenue today <span class="staticon">₦</span></div>
+                <strong>₦486,500</strong>
+                <div class="trend">↑ 8% <span class="muted">vs. yesterday</span></div>
+              </article>
+              <article class="stat">
+                <div class="stathead">Available riders <span class="staticon">♙</span></div>
+                <strong>18</strong>
+                <div class="trend">of 24 registered riders</div>
+              </article>
+            </div>
+            <div class="grid2">
+              <section class="panel">
+                <div class="panelhead">
+                  <div>
+                    <h2>Recent orders</h2>
+                    <p>Latest activity across Yola and Jimeta</p>
+                  </div>
+                  <a class="smallLink" href="#orders" data-view="orders">View all →</a>
+                </div>
+                <div class="tablewrap">
+                  <table>
+                    <thead>
+                      <tr>
+                        <th>Order</th>
+                        <th>Customer</th>
+                        <th>Service</th>
+                        <th>Rider</th>
+                        <th>Status</th>
+                        <th>Total</th>
+                      </tr>
+                    </thead>
+                    <tbody id="ordersTable">
+                      <tr>
+                        <td class="orderid">TJA-2048</td>
+                        <td>Amina Yusuf</td>
+                        <td>Groceries</td>
+                        <td>Musa Bello</td>
+                        <td>
+                          <span class="status s-progress">In progress</span>
+                        </td>
+                        <td>₦8,500</td>
+                      </tr>
+                      <tr>
+                        <td class="orderid">TJA-2047</td>
+                        <td>John James</td>
+                        <td>Parcel</td>
+                        <td>Not assigned</td>
+                        <td><span class="status s-pending">Pending</span></td>
+                        <td>₦3,000</td>
+                      </tr>
+                      <tr>
+                        <td class="orderid">TJA-2046</td>
+                        <td>Fatima Ali</td>
+                        <td>Food</td>
+                        <td>Grace Peter</td>
+                        <td><span class="status s-pickup">Picked up</span></td>
+                        <td>₦5,200</td>
+                      </tr>
+                      <tr>
+                        <td class="orderid">TJA-2045</td>
+                        <td>David Kalu</td>
+                        <td>Pharmacy</td>
+                        <td>Aliyu Umar</td>
+                        <td>
+                          <span class="status s-delivered">Delivered</span>
+                        </td>
+                        <td>₦4,750</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </section>
+              <section class="panel">
+                <div class="panelhead">
+                  <div>
+                    <h2>Rider availability</h2>
+                    <p>Current fleet status</p>
+                  </div>
+                  <a class="smallLink" href="#riders" data-view="riders">Manage →</a>
+                </div>
+                <div class="riders">
+                  <div class="rider">
+                    <div class="rideravatar">MB</div>
+                    <div class="riderinfo">
+                      <strong>Musa Bello</strong><small>Yola North · On delivery</small>
+                    </div>
+                    <span class="online">Active</span>
+                  </div>
+                  <div class="rider">
+                    <div class="rideravatar">GP</div>
+                    <div class="riderinfo">
+                      <strong>Grace Peter</strong><small>Jimeta · On delivery</small>
+                    </div>
+                    <span class="online">Active</span>
+                  </div>
+                  <div class="rider">
+                    <div class="rideravatar">AU</div>
+                    <div class="riderinfo">
+                      <strong>Aliyu Umar</strong><small>Yola South · Available</small>
+                    </div>
+                    <span class="online">Available</span>
+                  </div>
+                  <div class="rider">
+                    <div class="rideravatar">JO</div>
+                    <div class="riderinfo">
+                      <strong>John Okafor</strong><small>Jimeta · Off shift</small>
+                    </div>
+                    <span class="offline">Offline</span>
+                  </div>
+                </div>
+              </section>
+            </div>
+            <div class="grid2">
+              <section class="panel">
+                <div class="panelhead">
+                  <div>
+                    <h2>Orders by service</h2>
+                    <p>Today's delivery mix</p>
+                  </div>
+                </div>
+                <div class="barlist">
+                  <div class="barrow">
+                    <span>Food</span>
+                    <div class="bartrack">
+                      <div class="barfill" style="width: 78%"></div>
+                    </div>
+                    <b>42</b>
+                  </div>
+                  <div class="barrow">
+                    <span>Groceries</span>
+                    <div class="bartrack">
+                      <div class="barfill" style="width: 61%"></div>
+                    </div>
+                    <b>33</b>
+                  </div>
+                  <div class="barrow">
+                    <span>Parcels</span>
+                    <div class="bartrack">
+                      <div class="barfill" style="width: 43%"></div>
+                    </div>
+                    <b>23</b>
+                  </div>
+                  <div class="barrow">
+                    <span>Pharmacy</span>
+                    <div class="bartrack">
+                      <div class="barfill" style="width: 27%"></div>
+                    </div>
+                    <b>15</b>
+                  </div>
+                  <div class="barrow">
+                    <span>Other errands</span>
+                    <div class="bartrack">
+                      <div class="barfill" style="width: 18%"></div>
+                    </div>
+                    <b>10</b>
+                  </div>
+                </div>
+              </section>
+              <section class="panel">
+                <div class="panelhead">
+                  <div>
+                    <h2>Quick summary</h2>
+                    <p>Service health snapshot</p>
+                  </div>
+                </div>
+                <div class="riders">
+                  <div class="rider">
+                    <div class="rideravatar">✓</div>
+                    <div class="riderinfo">
+                      <strong>On-time deliveries</strong><small>Completed within estimate</small>
+                    </div>
+                    <span class="online">94%</span>
+                  </div>
+                  <div class="rider">
+                    <div class="rideravatar">★</div>
+                    <div class="riderinfo">
+                      <strong>Customer rating</strong><small>Average this week</small>
+                    </div>
+                    <span class="online">4.8</span>
+                  </div>
+                  <div class="rider">
+                    <div class="rideravatar">!</div>
+                    <div class="riderinfo">
+                      <strong>Needs attention</strong><small>Orders waiting for a rider</small>
+                    </div>
+                    <span class="offline">3</span>
+                  </div>
+                </div>
+              </section>
+            </div>
+          </section>
+          <section class="pageview" data-page="orders" hidden>
+            <div class="pageintro">
+              <div>
+                <h1>Orders</h1>
+                <p>Review and manage all delivery requests.</p>
+              </div>
+              <span class="badge"><span class="dot"></span> Sample data</span>
+            </div>
+            <section class="panel">
+              <div class="panelhead">
+                <div>
+                  <h2>All orders</h2>
+                  <p>Search by order number, customer, service, or rider.</p>
+                </div>
+                <div class="tablefilters">
+                  <button class="filter active" data-filter="all">All</button
+                  ><button class="filter" data-filter="active">Active</button
+                  ><button class="filter" data-filter="delivered">Delivered</button>
+                </div>
+              </div>
+              <div class="tablewrap">
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Order</th>
+                      <th>Customer</th>
+                      <th>Service</th>
+                      <th>Rider</th>
+                      <th>Status</th>
+                      <th>Total</th>
+                    </tr>
+                  </thead>
+                  <tbody class="allOrders">
+                    <tr data-status="active">
+                      <td class="orderid">TJA-2048</td>
+                      <td>Amina Yusuf</td>
+                      <td>Groceries</td>
+                      <td>Musa Bello</td>
+                      <td>
+                        <span class="status s-progress">In progress</span>
+                      </td>
+                      <td>₦8,500</td>
+                    </tr>
+                    <tr data-status="active">
+                      <td class="orderid">TJA-2047</td>
+                      <td>John James</td>
+                      <td>Parcel</td>
+                      <td>Not assigned</td>
+                      <td><span class="status s-pending">Pending</span></td>
+                      <td>₦3,000</td>
+                    </tr>
+                    <tr data-status="active">
+                      <td class="orderid">TJA-2046</td>
+                      <td>Fatima Ali</td>
+                      <td>Food</td>
+                      <td>Grace Peter</td>
+                      <td><span class="status s-pickup">Picked up</span></td>
+                      <td>₦5,200</td>
+                    </tr>
+                    <tr data-status="delivered">
+                      <td class="orderid">TJA-2045</td>
+                      <td>David Kalu</td>
+                      <td>Pharmacy</td>
+                      <td>Aliyu Umar</td>
+                      <td><span class="status s-delivered">Delivered</span></td>
+                      <td>₦4,750</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </section>
+            <section class="panel customerRequestsPanel">
+              <div class="panelhead">
+                <div>
+                  <h2>Customer-submitted delivery requests</h2>
+                  <p>Requests from the customer site stored in this browser.</p>
+                </div>
+              </div>
+              <div class="tablewrap">
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Tracking no.</th>
+                      <th>Sender</th>
+                      <th>Item / service</th>
+                      <th>Pickup</th>
+                      <th>Deliver to</th>
+                      <th>Recipient phone</th>
+                      <th>Status</th>
+                      <th>Admin decision</th>
+                    </tr>
+                  </thead>
+                  <tbody id="customerRequestsTable"></tbody>
+                </table>
+                <div class="empty" id="emptyCustomerRequests" hidden>
+                  <b>No customer requests yet</b>Requests submitted from the customer site will show
+                  here.
+                </div>
+              </div>
+            </section>
+          </section>
+          <section class="pageview" data-page="riders" hidden>
+            <div class="pageintro">
+              <div>
+                <h1>Riders</h1>
+                <p>Monitor rider availability and current assignments.</p>
+              </div>
+              <button class="filter">+ Add rider</button>
+            </div>
+            <section class="panel">
+              <div class="panelhead">
+                <div>
+                  <h2>Rider roster</h2>
+                  <p>Sample fleet information</p>
+                </div>
+              </div>
+              <div class="riders">
+                <div class="rider">
+                  <div class="rideravatar">MB</div>
+                  <div class="riderinfo">
+                    <strong>Musa Bello</strong><small>Yola North · On delivery</small>
+                  </div>
+                  <span class="online">Active</span>
+                </div>
+                <div class="rider">
+                  <div class="rideravatar">GP</div>
+                  <div class="riderinfo">
+                    <strong>Grace Peter</strong><small>Jimeta · On delivery</small>
+                  </div>
+                  <span class="online">Active</span>
+                </div>
+                <div class="rider">
+                  <div class="rideravatar">AU</div>
+                  <div class="riderinfo">
+                    <strong>Aliyu Umar</strong><small>Yola South · Available</small>
+                  </div>
+                  <span class="online">Available</span>
+                </div>
+                <div class="rider">
+                  <div class="rideravatar">JO</div>
+                  <div class="riderinfo">
+                    <strong>John Okafor</strong><small>Jimeta · Off shift</small>
+                  </div>
+                  <span class="offline">Offline</span>
+                </div>
+              </div>
+            </section>
+          </section>
+          <section class="pageview" data-page="customers" hidden>
+            <div class="pageintro">
+              <div>
+                <h1>Customers</h1>
+                <p>Customer information and recent activity.</p>
+              </div>
+            </div>
+            <section class="panel genericPanel">
+              <h2>Customer directory</h2>
+              <p>
+                Customer records will appear here when connected to your TijAI account database.
+              </p>
+            </section>
+          </section>
+          <section class="pageview" data-page="services" hidden>
+            <div class="pageintro">
+              <div>
+                <h1>Services</h1>
+                <p>Add and remove delivery services offered to customers.</p>
+              </div>
+              <span class="badge"><span class="dot"></span> Saved in this browser</span>
+            </div>
+            <section class="panel itemPanel">
+              <div class="panelhead">
+                <div>
+                  <h2>Add a service</h2>
+                  <p>Give the service a name and short description.</p>
+                </div>
+              </div>
+              <form id="serviceForm" class="itemForm serviceForm">
+                <label
+                  >Service name<input
+                    id="serviceName"
+                    required
+                    maxlength="70"
+                    placeholder="e.g. Same-day parcel" /></label
+                ><label
+                  >Icon<select id="serviceIcon">
+                    <option value="📦">Parcel</option>
+                    <option value="🛒">Groceries</option>
+                    <option value="🍲">Food</option>
+                    <option value="💊">Pharmacy</option>
+                    <option value="🏃">Errand</option>
+                    <option value="📄">Documents</option>
+                  </select></label
+                ><label
+                  >Description<input
+                    id="serviceDescription"
+                    required
+                    maxlength="100"
+                    placeholder="Short customer-facing description" /></label
+                ><button class="primaryButton" type="submit">+ Add service</button>
+              </form>
+            </section>
+            <section class="panel itemsPanel">
+              <div class="panelhead">
+                <div>
+                  <h2>Available services</h2>
+                  <p id="serviceCount">0 services</p>
+                </div>
+              </div>
+              <div class="riders" id="serviceList"></div>
+              <div class="empty" id="emptyServices" hidden>
+                <b>No services yet</b>Add a service above to begin.
+              </div>
+            </section>
+          </section>
+          <section class="pageview" data-page="items" hidden>
+            <div class="pageintro">
+              <div>
+                <h1>Items</h1>
+                <p>Add and remove items from the sample catalog.</p>
+              </div>
+              <span class="badge"><span class="dot"></span> Saved in this browser</span>
+            </div>
+            <section class="panel itemPanel">
+              <div class="panelhead">
+                <div>
+                  <h2>Add an item</h2>
+                  <p>Enter the name, category, and price to add it to the catalog.</p>
+                </div>
+              </div>
+              <form id="itemForm" class="itemForm">
+                <label
+                  >Item name<input
+                    id="itemName"
+                    required
+                    maxlength="70"
+                    placeholder="e.g. Bottled water" /></label
+                ><label
+                  >Category<select id="itemCategory">
+                    <option>Groceries</option>
+                    <option>Food</option>
+                    <option>Pharmacy</option>
+                    <option>Parcel service</option>
+                    <option>Other</option>
+                  </select></label
+                ><label
+                  >Price (₦)<input
+                    id="itemPrice"
+                    type="number"
+                    min="0"
+                    step="50"
+                    required
+                    placeholder="1500" /></label
+                ><button class="primaryButton" type="submit">+ Add item</button>
+              </form>
+            </section>
+            <section class="panel itemsPanel">
+              <div class="panelhead">
+                <div>
+                  <h2>Catalog items</h2>
+                  <p id="itemCount">0 items</p>
+                </div>
+                <input
+                  id="itemSearch"
+                  class="searchbox"
+                  placeholder="Search items..."
+                  aria-label="Search items"
+                />
+              </div>
+              <div class="tablewrap">
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Item</th>
+                      <th>Category</th>
+                      <th>Price</th>
+                      <th>Action</th>
+                    </tr>
+                  </thead>
+                  <tbody id="itemTable"></tbody>
+                </table>
+                <div class="empty" id="emptyItems" hidden>
+                  <b>No items found</b>Try a different search or add a new item.
+                </div>
+              </div>
+            </section>
+          </section>
+          <section class="pageview" data-page="messages" hidden>
+            <div class="pageintro">
+              <div>
+                <h1>Support messages</h1>
+                <p>Messages submitted from the customer contact form.</p>
+              </div>
+              <span class="badge"><span class="dot"></span> Same-origin demo inbox</span>
+            </div>
+            <section class="panel">
+              <div class="panelhead">
+                <div>
+                  <h2>Inbox</h2>
+                  <p>Messages are stored in this browser for the demo.</p>
+                </div>
+              </div>
+              <div class="tablewrap">
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Received</th>
+                      <th>From</th>
+                      <th>Email</th>
+                      <th>Subject</th>
+                      <th>Message</th>
+                    </tr>
+                  </thead>
+                  <tbody id="supportMessagesTable"></tbody>
+                </table>
+                <div class="empty" id="emptySupportMessages" hidden>
+                  <b>No support messages yet</b>Messages submitted on the customer site will appear
+                  here when both pages share the same origin.
+                </div>
+              </div>
+            </section>
+          </section>
+          <section class="pageview" data-page="settings" hidden>
+            <div class="pageintro">
+              <div>
+                <h1>Settings</h1>
+                <p>Set the sample delivery area, fee, and estimated delivery time.</p>
+              </div>
+              <span class="badge"><span class="dot"></span> Saved in this browser</span>
+            </div>
+            <section class="panel settingsPanel">
+              <div class="panelhead">
+                <div>
+                  <h2>Delivery settings</h2>
+                  <p>These preview settings are stored in this browser only.</p>
+                </div>
+              </div>
+              <form id="settingsForm" class="settingsForm">
+                <label
+                  >Operating area<input
+                    id="settingArea"
+                    required
+                    maxlength="80"
+                    placeholder="Yola, Adamawa" /></label
+                ><label
+                  >Base delivery fee (₦)<input
+                    id="settingFee"
+                    type="number"
+                    min="0"
+                    step="50"
+                    required
+                /></label>
+                <div class="timeFields">
+                  <label
+                    >Estimated time from (minutes)<input
+                      id="settingMin"
+                      type="number"
+                      min="1"
+                      step="1"
+                      required /></label
+                  ><label
+                    >To (minutes)<input id="settingMax" type="number" min="1" step="1" required
+                  /></label>
+                </div>
+                <label class="checkSetting"
+                  ><input id="settingAccepting" type="checkbox" />Accepting new orders</label
+                >
+                <div class="settingsActions">
+                  <button class="primaryButton" type="submit">Save settings</button
+                  ><button class="filter" id="resetSettings" type="button">
+                    Restore demo defaults</button
+                  ><span id="settingsStatus" role="status"></span>
+                </div>
+              </form>
+            </section>
+            <section class="panel settingsHelp">
+              <strong>What happens when I save?</strong>
+              <p>
+                The values are saved locally so you can practice editing settings. They will not
+                change the customer site until both sites are connected to a shared database.
+              </p>
+            </section>
+          </section>
+        </main>
+      </div>
+    </div>
+    <script src="./assets/js/admin.js" defer></script>
+  </body>
+</html>

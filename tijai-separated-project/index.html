@@ -1,0 +1,727 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>TijAI Delivery — Redesign Preview</title>
+    <link rel="stylesheet" href="./assets/css/customer.css" />
+  </head>
+  <body>
+    <div class="main">
+      <header class="top">
+        <div class="topbrand">
+          <div class="topmark">T</div>
+          <div><strong>TijAI Delivery</strong><small>📍 Yola, Adamawa</small></div>
+        </div>
+        <nav class="headnav" aria-label="Main navigation">
+          <a class="active" href="#page-home" data-page-link="home">Home</a
+          ><a href="#page-services" data-page-link="services">Services</a
+          ><a href="#page-orders" data-page-link="orders">Orders</a
+          ><a href="#page-track" data-page-link="track">Track</a>
+        </nav>
+        <div class="topright">
+          <button
+            class="notify"
+            id="notificationsButton"
+            aria-label="Notifications"
+            title="Notifications"
+          >
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M18 9a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9" />
+              <path d="M10 21h4" /></svg
+            ><span class="notificationBadge" id="notificationBadge" hidden></span></button
+          ><button
+            class="theme"
+            id="themeToggle"
+            aria-label="Switch to dark mode"
+            title="Switch theme"
+          >
+            <svg id="themeIcon" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M20.2 15.5A8.3 8.3 0 0 1 8.5 3.8 8.6 8.6 0 1 0 20.2 15.5Z" />
+            </svg></button
+          ><button class="profilebtn" id="profileButton" aria-label="User profile" title="Profile">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <circle cx="12" cy="8" r="3.5" />
+              <path d="M5 20c.5-3.4 3.1-5.5 7-5.5s6.5 2.1 7 5.5" />
+            </svg>
+          </button>
+        </div>
+        <div class="notificationPanel" id="notificationPanel" hidden>
+          <div class="notificationHead">
+            <strong>Notifications</strong
+            ><button id="markReadButton" type="button">Mark all read</button>
+          </div>
+          <div class="notificationList" id="notificationList"></div>
+        </div>
+      </header>
+      <main class="wrap page" id="page-home" data-page="home">
+        <section class="hero">
+          <div class="hero-copy">
+            <div class="eyebrow">One app for everyday deliveries</div>
+            <h1>Whatever you need,<br />we’ll bring it to you.</h1>
+            <p>Meals, groceries, parcels, pharmacy items and local errands across Adamawa.</p>
+            <label class="search"
+              ><span>⌕</span
+              ><input
+                placeholder="What do you need delivered?"
+                aria-label="Search for a delivery"
+              /><button>Find it</button></label
+            >
+            <div
+              id="searchStatus"
+              role="status"
+              style="margin-top: 8px; font-size: 13px; color: #e0f4e7"
+            ></div>
+          </div>
+        </section>
+        <section class="section">
+          <div class="sectionhead">
+            <div>
+              <h2>Choose a delivery</h2>
+              <p>What can we help you get today?</p>
+            </div>
+          </div>
+          <div class="categories">
+            <button type="button" class="cat" data-order-service="Food delivery">
+              <span class="emoji">🍲</span>Food</button
+            ><button type="button" class="cat" data-order-service="Groceries">
+              <span class="emoji">🛒</span>Groceries</button
+            ><button type="button" class="cat" data-order-service="Parcel delivery">
+              <span class="emoji">📦</span>Parcels</button
+            ><button type="button" class="cat" data-order-service="Pharmacy pickup">
+              <span class="emoji">💊</span>Pharmacy</button
+            ><button type="button" class="cat" data-order-service="Document delivery">
+              <span class="emoji">📄</span>Documents</button
+            ><button type="button" class="cat" data-order-service="Local errand">
+              <span class="emoji">🏃</span>Errands
+            </button>
+          </div>
+        </section>
+        <section class="section" id="services">
+          <div class="sectionhead">
+            <div>
+              <h2>Popular services</h2>
+              <p>More than meals. Get the everyday essentials moving.</p>
+            </div>
+            <a class="link" href="#services">Explore all　›</a>
+          </div>
+          <div class="servicegrid">
+            <article class="service">
+              <div class="serviceicon">🛒</div>
+              <strong>Market runs</strong>
+              <p>Fresh produce and household essentials picked up for you.</p>
+              <a href="#page-order" class="orderLink" data-order-service="Groceries"
+                >Shop groceries　›</a
+              >
+            </article>
+            <article class="service">
+              <div class="serviceicon">📦</div>
+              <strong>Send a parcel</strong>
+              <p>Quick, dependable pickup and drop-off around town.</p>
+              <a href="#page-order" class="orderLink" data-order-service="Parcel delivery"
+                >Send something　›</a
+              >
+            </article>
+            <article class="service">
+              <div class="serviceicon">💊</div>
+              <strong>Pharmacy pickup</strong>
+              <p>Get pharmacy essentials delivered from a nearby shop.</p>
+              <a href="#page-order" class="orderLink" data-order-service="Pharmacy pickup"
+                >Order essentials　›</a
+              >
+            </article>
+            <article class="service">
+              <div class="serviceicon">🧾</div>
+              <strong>Everyday errands</strong>
+              <p>Need a local pickup or drop-off? Let a rider handle it.</p>
+              <a href="#page-order" class="orderLink" data-order-service="Local errand"
+                >Request an errand　›</a
+              >
+            </article>
+          </div>
+        </section>
+        <section class="section">
+          <div class="sectionhead">
+            <div>
+              <h2>How delivery works</h2>
+              <p>Simple, from request to doorstep</p>
+            </div>
+          </div>
+          <div class="steps">
+            <div class="step">
+              <span class="num">1</span>
+              <div>
+                <strong>Tell us what you need</strong
+                ><small>Choose a service and add the details</small>
+              </div>
+            </div>
+            <div class="step">
+              <span class="num">2</span>
+              <div>
+                <strong>Your rider gets moving</strong
+                ><small>We pick up from the local shop or sender</small>
+              </div>
+            </div>
+            <div class="step">
+              <span class="num">3</span>
+              <div>
+                <strong>Track it to your door</strong
+                ><small>Follow your delivery as it arrives</small>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+      <main class="wrap page" id="page-services" data-page="services" hidden>
+        <div class="pagehead">
+          <div class="eyebrow-dark">DELIVERY SERVICES</div>
+          <h1>What can we help you send or get?</h1>
+          <p>Choose a service and we will take care of pickup and delivery.</p>
+        </div>
+        <section class="section">
+          <div class="categories">
+            <button type="button" class="cat" data-order-service="Food delivery">
+              <span class="emoji">🍲</span>Food delivery</button
+            ><button type="button" class="cat" data-order-service="Groceries">
+              <span class="emoji">🛒</span>Groceries</button
+            ><button type="button" class="cat" data-order-service="Parcel delivery">
+              <span class="emoji">📦</span>Parcels</button
+            ><button type="button" class="cat" data-order-service="Pharmacy pickup">
+              <span class="emoji">💊</span>Pharmacy</button
+            ><button type="button" class="cat" data-order-service="Document delivery">
+              <span class="emoji">📄</span>Documents</button
+            ><button type="button" class="cat" data-order-service="Local errand">
+              <span class="emoji">🏃</span>Errands
+            </button>
+          </div>
+        </section>
+        <section class="section">
+          <div class="sectionhead">
+            <div>
+              <h2>Explore services</h2>
+              <p>Choose a delivery type to get started.</p>
+            </div>
+          </div>
+          <div class="servicegrid">
+            <article class="service">
+              <div class="serviceicon">🍲</div>
+              <strong>Food delivery</strong>
+              <p>Meals and treats from nearby restaurants and kitchens.</p>
+              <a href="#page-order" class="orderLink" data-order-service="Food delivery"
+                >Browse food　›</a
+              >
+            </article>
+            <article class="service">
+              <div class="serviceicon">🛒</div>
+              <strong>Groceries</strong>
+              <p>Market produce and household essentials picked up for you.</p>
+              <a href="#page-order" class="orderLink" data-order-service="Groceries"
+                >Shop groceries　›</a
+              >
+            </article>
+            <article class="service">
+              <div class="serviceicon">📦</div>
+              <strong>Parcel delivery</strong>
+              <p>Send packages across town with a local rider.</p>
+              <a href="#page-order" class="orderLink" data-order-service="Parcel delivery"
+                >Send a parcel　›</a
+              >
+            </article>
+            <article class="service">
+              <div class="serviceicon">💊</div>
+              <strong>Pharmacy pickup</strong>
+              <p>Get everyday pharmacy essentials delivered.</p>
+              <a href="#page-order" class="orderLink" data-order-service="Pharmacy pickup"
+                >Get essentials　›</a
+              >
+            </article>
+            <article class="service">
+              <div class="serviceicon">📄</div>
+              <strong>Document delivery</strong>
+              <p>Move important papers quickly and carefully.</p>
+              <a href="#page-order" class="orderLink" data-order-service="Document delivery"
+                >Send documents　›</a
+              >
+            </article>
+            <article class="service">
+              <div class="serviceicon">🏃</div>
+              <strong>Local errands</strong>
+              <p>Ask a rider to collect or drop off something nearby.</p>
+              <a href="#page-order" class="orderLink" data-order-service="Local errand"
+                >Request an errand　›</a
+              >
+            </article>
+          </div>
+        </section>
+      </main>
+      <main class="wrap page" id="page-order" data-page="order" hidden>
+        <div class="pagehead">
+          <div class="eyebrow-dark">DELIVERY REQUEST</div>
+          <h1>Tell us what to pick up and where to take it</h1>
+          <p>Use this form to send a bag, document, parcel, or request a local pickup.</p>
+        </div>
+        <section class="section orderFormWrap">
+          <form class="deliveryOrderForm" id="deliveryOrderForm">
+            <div class="formSectionTitle">What do you need?</div>
+            <label
+              >Service<select id="orderService" required>
+                <option>Parcel delivery</option>
+                <option>Local errand</option>
+                <option>Food delivery</option>
+                <option>Groceries</option>
+                <option>Pharmacy pickup</option>
+                <option>Document delivery</option>
+              </select></label
+            ><label class="wide"
+              >What are we picking up or buying?<input
+                id="orderDescription"
+                required
+                maxlength="140"
+                placeholder="For example: a blue bag, a pen, groceries"
+            /></label>
+            <div class="formSectionTitle">Pickup details</div>
+            <label
+              >Pickup contact name<input
+                id="pickupName"
+                required
+                autocomplete="name"
+                placeholder="Your name" /></label
+            ><label
+              >Pickup phone number<input
+                id="pickupPhone"
+                required
+                type="tel"
+                placeholder="080..." /></label
+            ><label
+              >Pickup town<select id="pickupTown" required>
+                <option>Yola</option>
+                <option>Jimeta</option>
+                <option>Mubi</option>
+                <option>Numan</option>
+                <option>Gombi</option>
+                <option>Hong</option>
+              </select></label
+            ><label class="wide"
+              >Pickup address<input
+                id="pickupAddress"
+                required
+                placeholder="Street, area, landmark"
+            /></label>
+            <div class="formSectionTitle">Delivery details</div>
+            <label
+              >Recipient name<input
+                id="recipientName"
+                required
+                placeholder="Person receiving the item" /></label
+            ><label
+              >Recipient phone number<input
+                id="recipientPhone"
+                required
+                type="tel"
+                placeholder="080..." /></label
+            ><label
+              >Delivery town<select id="deliveryTown" required>
+                <option>Yola</option>
+                <option>Jimeta</option>
+                <option>Mubi</option>
+                <option>Numan</option>
+                <option>Gombi</option>
+                <option>Hong</option>
+              </select></label
+            ><label class="wide"
+              >Delivery address<input
+                id="deliveryAddress"
+                required
+                placeholder="Street, area, landmark" /></label
+            ><label class="wide"
+              >Instructions (optional)<textarea
+                id="orderNotes"
+                rows="3"
+                maxlength="300"
+                placeholder="Anything the rider should know?"
+              ></textarea>
+            </label>
+            <div class="orderSubmit">
+              <button class="primaryButton" type="submit">Request delivery</button
+              ><span>Demo request only. No rider is dispatched from this preview.</span>
+            </div>
+          </form>
+          <div id="orderConfirmation" class="orderConfirmation" hidden role="status"></div>
+        </section>
+      </main>
+      <main class="wrap page" id="page-orders" data-page="orders" hidden>
+        <div class="pagehead">
+          <div class="eyebrow-dark">YOUR ACCOUNT</div>
+          <h1>My orders</h1>
+          <p>View your recent deliveries and check their progress.</p>
+        </div>
+        <section class="section">
+          <div class="emptyState">
+            <div class="emptyIcon">▤</div>
+            <h2>No orders yet</h2>
+            <p>Your deliveries will appear here once you place an order.</p>
+            <a class="primaryLink" href="#page-services" data-page-link="services"
+              >Explore services</a
+            >
+          </div>
+          <div id="customerOrdersList" class="customerOrdersList" hidden></div>
+        </section>
+      </main>
+      <main class="wrap page" id="page-track" data-page="track" hidden>
+        <div class="pagehead">
+          <div class="eyebrow-dark">DELIVERY UPDATES</div>
+          <h1>Track a delivery</h1>
+          <p>Enter the tracking number from your order confirmation.</p>
+          <p class="trackingHint">
+            After ordering, find your number in the confirmation and My Orders. Example:
+            <strong>TJA-2048</strong>.
+          </p>
+        </div>
+        <section class="section">
+          <div class="trackPanel">
+            <label for="trackingCode">Tracking number</label>
+            <div class="trackForm">
+              <input id="trackingCode" placeholder="For example, TJA-2048" /><button
+                class="primaryButton"
+                id="trackButton"
+              >
+                Track delivery
+              </button>
+            </div>
+            <div class="trackResult" id="trackResult" role="status">
+              Enter your tracking number to check a delivery. Tracking lookup is a preview and is
+              not connected to live orders.
+            </div>
+          </div>
+        </section>
+        <section class="section">
+          <div class="trackNote">
+            <span>⌖</span>
+            <div>
+              <strong>Stay in the loop</strong>
+              <p>Follow pickup and delivery updates here when an order is in progress.</p>
+            </div>
+          </div>
+        </section>
+      </main>
+      <main class="wrap page" id="page-profile" data-page="profile" hidden>
+        <div class="pagehead">
+          <div class="eyebrow-dark">YOUR ACCOUNT</div>
+          <h1>Your profile</h1>
+          <p>Manage your account details and delivery preferences.</p>
+        </div>
+        <section class="section">
+          <div class="profileCard">
+            <div class="profileAvatar">A</div>
+            <div>
+              <h2>Welcome to TijAI</h2>
+              <p>Sign in or create an account to manage your deliveries.</p>
+            </div>
+            <button class="primaryButton" id="signInButton">Sign in</button>
+          </div>
+        </section>
+        <section class="section authSection">
+          <div class="authCard" id="authCard" hidden>
+            <h2 id="authTitle">Sign in to TijAI</h2>
+            <p id="authIntro">
+              Demo signup saves your profile in this browser only. No password is saved.
+            </p>
+            <form id="authForm">
+              <label id="nameField" hidden
+                >Full name<input id="fullName" autocomplete="name" placeholder="Your name" /></label
+              ><label
+                >Email address<input
+                  type="email"
+                  required
+                  autocomplete="email"
+                  placeholder="you@example.com" /></label
+              ><label
+                >Password<input
+                  type="password"
+                  required
+                  minlength="6"
+                  autocomplete="current-password"
+                  placeholder="Enter your password" /></label
+              ><button class="primaryButton authSubmit" id="authSubmit" type="submit">
+                Sign in
+              </button>
+              <div class="authStatus" id="authStatus" role="status"></div>
+            </form>
+            <p class="authSwitch">
+              <span id="authSwitchText">New to TijAI?</span>
+              <button type="button" id="authModeToggle">Create an account</button>
+            </p>
+          </div>
+        </section>
+        <section class="section">
+          <div class="profileOptions">
+            <a href="#page-orders" data-page-link="orders"
+              ><span>▤</span>
+              <div><strong>My orders</strong><small>View your delivery history</small></div>
+              <b>›</b></a
+            ><a href="#page-track" data-page-link="track"
+              ><span>⌖</span>
+              <div><strong>Delivery tracking</strong><small>Follow an active delivery</small></div>
+              <b>›</b></a
+            ><a href="#page-contact" data-page-link="contact"
+              ><span>?</span>
+              <div>
+                <strong>Help &amp; support</strong><small>Get help with TijAI Delivery</small>
+              </div>
+              <b>›</b></a
+            >
+          </div>
+        </section>
+      </main>
+      <main class="wrap page" id="page-faq" data-page="faq" hidden>
+        <div class="pagehead">
+          <div class="eyebrow-dark">HELP CENTRE</div>
+          <h1>Frequently asked questions</h1>
+          <p>Quick answers about requesting and tracking a delivery.</p>
+        </div>
+        <section class="section faqList">
+          <details>
+            <summary>How do I request a pickup?</summary>
+            <p>
+              Choose a delivery service, describe the item, and add the pickup and delivery
+              addresses and contact details. Submit the form to create a demo request.
+            </p>
+          </details>
+          <details>
+            <summary>How do I get a tracking number?</summary>
+            <p>
+              The preview creates a demo tracking number after you submit a request. In a live
+              service, the number would be generated after the order is accepted and shown in your
+              confirmation.
+            </p>
+          </details>
+          <details>
+            <summary>Can a rider see my request now?</summary>
+            <p>
+              This preview saves requests in the browser. It does not send them to a rider. A shared
+              backend is needed for live dispatch.
+            </p>
+          </details>
+          <details>
+            <summary>Which towns can I choose?</summary>
+            <p>
+              The sample form includes Yola, Jimeta, Mubi, Numan, Gombi, and Hong. A live service
+              should show only towns that are currently covered.
+            </p>
+          </details>
+        </section>
+        <section class="section">
+          <a class="primaryLink" href="#page-contact" data-page-link="contact">Contact support</a>
+        </section>
+      </main>
+      <main class="wrap page" id="page-contact" data-page="contact" hidden>
+        <div class="pagehead">
+          <div class="eyebrow-dark">WE ARE HERE TO HELP</div>
+          <h1>Contact TijAI support</h1>
+          <p>Send a message about an order, pickup, delivery, or account.</p>
+        </div>
+        <section class="section contactWrap">
+          <form class="contactForm" id="contactForm">
+            <label
+              >Your name<input
+                id="contactName"
+                required
+                maxlength="80"
+                placeholder="Your name" /></label
+            ><label
+              >Email address<input
+                id="contactEmail"
+                required
+                type="email"
+                maxlength="120"
+                placeholder="you@example.com" /></label
+            ><label class="wide"
+              >Subject<input
+                id="contactSubject"
+                required
+                maxlength="120"
+                placeholder="How can we help?" /></label
+            ><label class="wide"
+              >Message<textarea
+                id="contactMessage"
+                required
+                maxlength="1000"
+                rows="5"
+                placeholder="Write your message"
+              ></textarea></label
+            ><button class="primaryButton" type="submit">Send message</button>
+            <div id="contactStatus" role="status"></div>
+            <small class="contactNote"
+              >This preview saves messages locally only. For direct support, email or call TijAl
+              Delivery.</small
+            >
+          </form>
+          <div class="contactDetails">
+            <h2>Contact us directly</h2>
+            <a href="mailto:tijaldelivery@gmail.com">tijaldelivery@gmail.com</a
+            ><a href="tel:08061211170">08061211170</a>
+            <p>
+              Support is available 24 hours a day. We aim to respond immediately; busy periods may
+              take longer.
+            </p>
+            <p>No. 13 Bauchi Street, J/Yola</p>
+          </div>
+        </section>
+      </main>
+      <main class="wrap page" id="page-terms" data-page="terms" hidden>
+        <div class="pagehead">
+          <div class="eyebrow-dark">TIJAL DELIVERY · CUSTOMER TERMS</div>
+          <h1>Terms &amp; Conditions</h1>
+          <p>Draft for review · Last updated 20 November 2026</p>
+        </div>
+        <section class="section termsIntro">
+          <strong>Terms for customers using TijAl Delivery</strong>
+          <p>
+            These terms describe the current proposed service. The website preview is for
+            demonstration; submitting a request in the preview does not dispatch a rider or create a
+            live delivery.
+          </p>
+        </section>
+        <section class="section termsList">
+          <article>
+            <h2>1. Who we are and where we operate</h2>
+            <p>
+              TijAl Delivery operates from No. 13 Bauchi Street, J/Yola, Adamawa State. We arrange
+              pickups and deliveries across the Local Government Areas of Adamawa State, subject to
+              route availability, safe operating conditions, and confirmation of each request.
+            </p>
+          </article>
+          <article>
+            <h2>2. Delivery requests</h2>
+            <p>
+              When requesting a delivery, give accurate descriptions of the item, pickup and
+              drop-off addresses, and sender and recipient contact details. A request is accepted
+              only when TijAl confirms it. The live service should provide an order confirmation and
+              tracking number after acceptance.
+            </p>
+          </article>
+          <article>
+            <h2>3. Fees, estimates, and payment</h2>
+            <p>
+              Delivery fees and estimated times depend on the pickup and destination locations and
+              the requested service. We will show the applicable price and estimate before you
+              confirm. Payment methods offered at checkout may be used. Where payment is due on
+              delivery, the item will be handed to the recipient only after all applicable charges
+              have been paid.
+            </p>
+          </article>
+          <article>
+            <h2>4. Items and packaging</h2>
+            <p>
+              Describe items honestly and package them securely. We do not accept illegal items,
+              explosives, weapons, flammable or hazardous materials, or other items prohibited by
+              law. Prescription medicines may be carried only where lawful and any required
+              prescription or documentation is provided. Cash, live animals, and unusually valuable
+              or perishable items require prior written approval.
+            </p>
+          </article>
+          <article>
+            <h2>5. Changes and cancellations</h2>
+            <p>
+              Contact support as soon as possible to change or cancel a request. A request may be
+              cancelled without a delivery charge before pickup, unless a separately disclosed and
+              lawful cost has already been incurred. Once pickup has happened, costs already
+              incurred may be charged if disclosed. If TijAl cannot complete an accepted delivery,
+              we will contact you and arrange an appropriate refund or other remedy under the
+              applicable policy and law.
+            </p>
+          </article>
+          <article>
+            <h2>6. Delays, loss, or damage</h2>
+            <p>
+              Delivery estimates are estimates and may change due to traffic, weather, access,
+              safety, or other operating conditions. We will provide an update when we become aware
+              of a material delay. Report missing or damaged items to support as soon as possible,
+              with the order number and relevant details. TijAl will review the report and provide
+              an appropriate remedy in line with applicable law. Nothing in these terms removes
+              rights that cannot legally be excluded.
+            </p>
+          </article>
+          <article>
+            <h2>7. Customer information and privacy</h2>
+            <p>
+              We use names, phone numbers, addresses, and order details to arrange deliveries,
+              provide support, and help protect the service. We share only the information needed
+              with the assigned rider and relevant service provider. We retain information only for
+              as long as needed for these purposes or legal requirements, and take steps to protect
+              it. See the Privacy Notice for full details and how to request access or correction.
+              These practices should follow the
+              <a
+                href="https://ndpc.gov.ng/wp-content/uploads/2024/03/Nigeria_Data_Protection_Act_2023.pdf"
+                target="_blank"
+                rel="noopener"
+                >Nigeria Data Protection Act</a
+              >.
+            </p>
+          </article>
+          <article>
+            <h2>8. Customer age and account use</h2>
+            <p>
+              Account holders must be at least 18 years old. A parent or guardian may arrange a
+              delivery for a younger person and remains responsible for the request and the accuracy
+              of its details. Keep account credentials private and notify support if you believe
+              your account has been accessed without permission.
+            </p>
+          </article>
+          <article>
+            <h2>9. Complaints and customer rights</h2>
+            <p>
+              Contact us by email or phone using the details below. Support is available 24 hours a
+              day, and we aim to respond immediately; during busy periods, a response may take
+              longer. We will review complaints fairly. These terms do not limit rights provided by
+              applicable Nigerian consumer protection law. See the
+              <a
+                href="https://fccpc.gov.ng/consumers/consumer-rights-responsibilities/rights-responsibilities/"
+                target="_blank"
+                rel="noopener"
+                >FCCPC consumer rights information</a
+              >.
+            </p>
+          </article>
+          <article>
+            <h2>10. Updates and contact</h2>
+            <p>
+              We may update these terms when the service or operating policies change. We will
+              publish the current version and update the revision date. Contact TijAl Delivery at
+              <a href="mailto:tijaldelivery@gmail.com">tijaldelivery@gmail.com</a>
+              or <a href="tel:08061211170">08061211170</a>, or visit No. 13 Bauchi Street, J/Yola.
+            </p>
+          </article>
+        </section>
+      </main>
+      <footer class="footer">
+        <div class="footerinner">
+          <div>
+            <div class="footerbrand">TijAI Delivery</div>
+            <div class="footerabout">
+              Everyday deliveries made simple. From essentials and parcels to local errands.
+            </div>
+          </div>
+          <div class="footercol">
+            <strong>Explore</strong>
+            <nav class="footerlinks" aria-label="Explore">
+              <a href="#services">All services</a
+              ><a href="#page-orders" data-page-link="orders">My orders</a
+              ><a href="#page-track" data-page-link="track">Track a delivery</a>
+            </nav>
+          </div>
+          <div class="footercol">
+            <strong>Get help</strong>
+            <nav class="footerlinks" aria-label="Support">
+              <a href="#page-contact" data-page-link="contact">Contact support</a
+              ><a href="#page-faq" data-page-link="faq">Frequently asked questions</a
+              ><a href="#page-terms" data-page-link="terms">Terms &amp; Conditions</a>
+            </nav>
+          </div>
+          <div class="footerbottom">© 2026 TijAI Delivery. All rights reserved.</div>
+        </div>
+      </footer>
+    </div>
+    <script src="./assets/js/customer.js" defer></script>
+  </body>
+</html>
